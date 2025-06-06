@@ -1,4 +1,4 @@
-name: Exemplo de fluxo de trabalho
+name: Exemplo GPT
 
 on: 
   workflow_dispatch:
