@@ -1,0 +1,14 @@
+name: Exemplo de fluxo de trabalho
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  meuprimeirojob:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mostrar informações do sistema
+        run: uname -a && lsb_release -a
+      - name: Rodar script Python
+        run: |
+          python3 -c "print('Olá do Python!')"
