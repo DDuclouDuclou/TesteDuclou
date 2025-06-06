@@ -2,13 +2,31 @@ name: Exemplo GPT
 
 on: 
   workflow_dispatch:
+    inputs:
+      nome:
+        description: 'Digite seu nome'
+        required: true
 
 jobs:
-  meuprimeirojob:
+  meusegundojob:
     runs-on: ubuntu-latest
     steps:
       - name: Mostrar informações do sistema
         run: uname -a && lsb_release -a
       - name: Rodar script Python
         run: |
-          python3 -c "print('Olá do Python!')"
+          echo "Primeira linha"
+          echo "Segunda linha"
+          echo "Terceira linha"
+
+      - name: Criar arquivo
+        run: echo "Isso aqui é um teste de YAML" > teste.txt
+
+      - name: Ler arquivo
+        run: cat teste.txt
+
+  meuterceirojob:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Imprimir nome enviado
+        run: echo "Olá, ${{github.event.inputs.nome}}!"
